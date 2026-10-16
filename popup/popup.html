@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Clip to CalDAV</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div id="unconfigured" class="unconfigured" hidden>
+    <p>No CalDAV server configured yet.</p>
+    <button id="open-settings" class="primary">Open settings</button>
+  </div>
+
+  <form id="clip" class="clip" hidden>
+    <header class="head">
+      <span class="brand">Clip to CalDAV</span>
+      <button type="button" id="settings-btn" class="icon-btn" title="Settings" aria-label="Settings">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <line x1="4" y1="7" x2="20" y2="7" /><circle cx="9" cy="7" r="2.4" fill="currentColor" stroke="none" />
+          <line x1="4" y1="17" x2="20" y2="17" /><circle cx="15" cy="17" r="2.4" fill="currentColor" stroke="none" />
+        </svg>
+      </button>
+    </header>
+
+    <label class="field">
+      <span>Title</span>
+      <input id="title" type="text" maxlength="500" autocomplete="off" />
+    </label>
+
+    <div id="pageurl" class="pageurl" title=""></div>
+
+    <label class="field">
+      <span>Note</span>
+      <textarea id="note" rows="4" placeholder="Optional note — page selections are added automatically"></textarea>
+    </label>
+
+    <label class="field">
+      <span>Tags</span>
+      <input id="tags" type="text" placeholder="reading, inbox" autocomplete="off" />
+    </label>
+
+    <label class="field">
+      <span>Journal</span>
+      <select id="collection"></select>
+    </label>
+
+    <footer class="foot">
+      <span id="status" class="status" role="status"></span>
+      <button type="submit" id="save" class="primary">Save</button>
+    </footer>
+  </form>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "CalDAV Clipper",
+  "version": "0.1.0",
+  "description": "Save web pages as journal notes (VJOURNAL) to any CalDAV journal collection. Read the notes in Spectacled, jtx Board, or any CalDAV client.",
+  "minimum_chrome_version": "102",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Clip to CalDAV",
+    "default_popup": "popup/popup.html"
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": ["storage", "activeTab", "scripting", "contextMenus", "notifications"],
+  "optional_host_permissions": ["*://*/*"],
+  "commands": {
+    "_execute_action": {
+      "suggested_key": { "default": "Ctrl+Shift+S" },
+      "description": "Open the clipper"
+    }
+  }
+}

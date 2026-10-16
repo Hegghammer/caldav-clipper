@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>CalDAV Clipper settings</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>CalDAV Clipper</h1>
+    <p class="lead">Clip pages into a CalDAV journal collection (VJOURNAL). Works with any standards-based server; the notes appear in Spectacled, jtx Board, and friends.</p>
+
+    <section>
+      <h2>Server</h2>
+      <label class="field">
+        <span>Server URL</span>
+        <input id="serverUrl" type="url" placeholder="https://cal.example.com" spellcheck="false" />
+        <small class="hint">Base URL of your CalDAV server, e.g. the root of a Radicale instance or your DAV endpoint. Collections are discovered automatically from here.</small>
+      </label>
+      <div class="grid2">
+        <label class="field">
+          <span>Username</span>
+          <input id="username" type="text" autocomplete="off" spellcheck="false" />
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <input id="password" type="password" autocomplete="new-password" />
+        </label>
+      </div>
+      <p class="hint">The password is kept only in this browser's local extension storage and is sent only to the server configured above.</p>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <h2>Journal collection</h2>
+        <button type="button" id="reload" class="ghost">Reload list</button>
+      </div>
+      <div id="collections" class="collections"></div>
+    </section>
+
+    <section>
+      <h2>Defaults</h2>
+      <label class="field">
+        <span>Default tags</span>
+        <input id="defaultTags" type="text" placeholder="reading, inbox" autocomplete="off" />
+      </label>
+      <label class="check">
+        <input id="prependUrl" type="checkbox" checked />
+        <span>Add the page link at the top of each note</span>
+      </label>
+      <label class="check">
+        <input id="dateStamp" type="checkbox" checked />
+        <span>Stamp today's date on each entry</span>
+      </label>
+    </section>
+
+    <footer class="foot">
+      <span id="status" class="status" role="status"></span>
+      <button id="save" class="primary">Save</button>
+    </footer>
+  </main>
+
+  <script type="module" src="options.js"></script>
+</body>
+</html>
